@@ -8,11 +8,24 @@ fn main() {
     // assert_eq!(unique_in_order(_v2), vec!['A','B','C','c','A','D']);
     // assert_eq!(unique_in_order(_v3), vec![1,2,3])
 
+    // assert_eq!(maskify("4556364607935616"), "############5616");
+    // assert_eq!(maskify("1"), "1");
+    // assert_eq!(maskify("11111"), "#1111");
+    let mut s = Vec::from_iter( "(}][".chars());
+    for c in s{
+        match c {
+            '(' => println!("s"),
+            '[' => println!("s"),
+            '{' => println!("s"),
+            _ => println!("s"),
+        }
+    };
+}
 
-    assert_eq!(maskify("4556364607935616"), "############5616");
-    assert_eq!(maskify("1"), "1");
-    assert_eq!(maskify("11111"), "#1111");
-
+#[allow(dead_code)]
+fn valid_braces(_s: &str) -> bool {
+    
+    false
 }
 
 #[allow(dead_code)]

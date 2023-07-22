@@ -11,21 +11,50 @@ fn main() {
     // assert_eq!(maskify("4556364607935616"), "############5616");
     // assert_eq!(maskify("1"), "1");
     // assert_eq!(maskify("11111"), "#1111");
-    let mut s = Vec::from_iter( "(}][".chars());
-    for c in s{
-        match c {
-            '(' => println!("s"),
-            '[' => println!("s"),
-            '{' => println!("s"),
-            _ => println!("s"),
-        }
-    };
+    // let  s = Vec::from_iter( "(}][".chars());
+    // let mut _right = vec![];
+    // let mut re = vec![];
+    // // [()] 
+    // for c in s{
+    //     let a = match c {
+    //         '(' => {_right.push(')');true},
+    //         '[' => {_right.push(']');true},
+    //         '{' => {_right.push('}');true},
+    //         _ => {if c == _right.pop().unwrap(){true}else{false}}
+    //     };
+    //     if a { re.push(a) }else {
+    //         return false;
+    //     };
+//     // };
+//     "(){}[]"   =>  True
+// "([{}])"   =>  True
+// "(}"       =>  False
+// "[(])"     =>  False
+// "[({})](]" =>  False
+    println!("{:?}",valid_braces("(((({{}"))
+
 }
 
 #[allow(dead_code)]
 fn valid_braces(_s: &str) -> bool {
-    
-    false
+    let  s = Vec::from_iter( _s.chars());
+    if &s.len() == &1usize {return  false;}
+    let mut _right = vec![];
+    let mut re = vec![];
+    // [()] 
+    for c in s{
+        let a = match c {
+            '(' => {_right.push(')');true},
+            '[' => {_right.push(']');true},
+            '{' => {_right.push('}');true},
+            _ => {if c == _right.pop().unwrap_or(' '){true}else{false}}
+        };
+        if a { re.push(a) }else {
+            return false;
+        };
+    };
+    if _right.len() > 0usize{return false;}
+    re.iter().any(|x|*x ) 
 }
 
 #[allow(dead_code)]
